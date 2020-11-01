@@ -36,9 +36,9 @@ import (
 	"github.com/apache/dubbo-go/config"
 	_ "github.com/apache/dubbo-go/protocol/dubbo"
 	_ "github.com/apache/dubbo-go/registry/protocol"
-	"github.com/dk-lockdown/seata-golang/client"
-	config2 "github.com/dk-lockdown/seata-golang/client/config"
-	"github.com/dk-lockdown/seata-golang/client/tm"
+	"github.com/transaction-wg/seata-golang/pkg"
+	config2 "github.com/transaction-wg/seata-golang/pkg/config"
+	"github.com/transaction-wg/seata-golang/pkg/tm"
 
 	_ "github.com/apache/dubbo-go/filter/filter_impl"
 
@@ -62,7 +62,7 @@ var (
 func main() {
 	confFile := os.Getenv(SEATA_CONF_FILE)
 	config2.InitConf(confFile)
-	client.NewRpcClient()
+	pkg.NewRpcClient()
 	tm.Implement(svc.ProxySvc)
 	config.Load()
 	time.Sleep(3e9)

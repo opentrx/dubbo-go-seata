@@ -35,9 +35,9 @@ import (
 	"github.com/apache/dubbo-go/config"
 	_ "github.com/apache/dubbo-go/protocol/dubbo"
 	_ "github.com/apache/dubbo-go/registry/protocol"
-	"github.com/dk-lockdown/seata-golang/client"
-	"github.com/dk-lockdown/seata-golang/client/at/exec"
-	config2 "github.com/dk-lockdown/seata-golang/client/config"
+	"github.com/transaction-wg/seata-golang/pkg"
+	"github.com/transaction-wg/seata-golang/pkg/at/exec"
+	config2 "github.com/transaction-wg/seata-golang/pkg/config"
 
 	_ "github.com/apache/dubbo-go/common/proxy/proxy_factory"
 	_ "github.com/apache/dubbo-go/filter/filter_impl"
@@ -62,7 +62,7 @@ var (
 func main() {
 	confFile := os.Getenv(SEATA_CONF_FILE)
 	config2.InitConf(confFile)
-	client.NewRpcClient()
+	pkg.NewRpcClient()
 	exec.InitDataResourceManager()
 
 	sqlDB, err := sql.Open("mysql", config2.GetATConfig().DSN)

@@ -9,4 +9,4 @@ echo $SEATA_CONF_FILE
 
 + 运行调试
 
-**调试之前，请先运行事务协调器 tc server, JAVA 版和 GO 版本均可，Go 版地址 `https://github.com/dk-lockdown/seata-golang`**
+**调试之前，请先运行事务协调器 tc server, JAVA 版和 GO 版本均可，Go 版地址 `https://github.com/transaction-wg/seata-golang`**
