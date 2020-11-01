@@ -62,7 +62,7 @@ var (
 func main() {
 	confFile := os.Getenv(SEATA_CONF_FILE)
 	config2.InitConf(confFile)
-	client.NewRpcClient()
+	pkg.NewRpcClient()
 	exec.InitDataResourceManager()
 
 	sqlDB, err := sql.Open("mysql", config2.GetATConfig().DSN)
